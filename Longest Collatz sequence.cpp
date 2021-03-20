@@ -15,16 +15,15 @@
 
 #include <iostream>
 using namespace std;
-collatz( long long int n ,int count){
-	count = count + 1;
-	if (n==1) return count ;
-	else if(n%2==0) return collatz(n/2 , count);
-	else return collatz(3 * n + 1 , count);
+collatz( long long int n){
+	if (n==1) return 1 ;
+	else if(n%2==0) return 1 + collatz(n/2);
+	else return 2 + collatz((3 * n + 1)/2);
 }
 int main(){
 long long int count = 0, chain = 0, maxChain = 0 , maxElement;
-	for (long long int i = 2 ; i<=1000000;i++){
-		chain =	collatz(i , count);
+	for (long long int i = 13 ; i<=13;i++){
+		chain =	collatz(i);
 	if( maxChain <	chain){
 		maxChain = chain;
 		maxElement = i;
